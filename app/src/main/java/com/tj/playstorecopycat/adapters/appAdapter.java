@@ -51,7 +51,10 @@ public class appAdapter extends ArrayAdapter<App> {
 //            만약 설치가 되었다면? 설치된 항목
 //            안되었다면? 가격을 띄워줌. 3,000원 의양식.
            if (appData.isMine){
-//               내가 설치한 항목일 경우 설치한 항목 글자를 그대로 표시
+//               내가 설치한 항목일 경우에는 반드시 설치된 항목이라고 명띄우도록 명령
+//               재사용성 때문에 원하지 않는 데이터가 나올 수 있음;
+               priceOrInstallTxt.setText("설치된 항목");
+
 //               실제 코딩은 하지 않음.
            } else {
 //               설치하지 않은 경우.
