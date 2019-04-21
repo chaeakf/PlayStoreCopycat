@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.tj.playstorecopycat.adapters.appAdapter;
 import com.tj.playstorecopycat.databinding.ActivityMainBinding;
 import com.tj.playstorecopycat.datas.App;
 
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    appAdapter mAppAdapter;
 
     List<App> appList = new ArrayList<>();
 
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         act = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
         fillApss();
+
+        mAppAdapter = new appAdapter(MainActivity.this, appList);
+        act.appLankListView.setAdapter(mAppAdapter);
 
         //act.tilteTxt.setText("제목 화면");
     }
