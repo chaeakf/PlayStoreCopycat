@@ -8,8 +8,7 @@ public class App {
     public  int price;  //구매가격
     public boolean isMine;  // 내가 구매했는지? True: 설치된 항목, Flase: 가격표시
 
-    //Alt + insert -> Costructor
-
+    //Alt + insert -> Constructor
     public App(int rank, String title, String companyName, int userRating, int price, boolean isMine) {
         this.rank = rank;
         this.title = title;
