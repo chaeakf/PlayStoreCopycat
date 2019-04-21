@@ -14,5 +14,12 @@ public class AppDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         act = DataBindingUtil.setContentView(this,R.layout.activity_app_detail);
+
+        String appTilte = getIntent().getStringExtra("제목");
+        String appCompanyName = getIntent().getStringExtra("회사이름");
+
+        act.appTitleTxt.setText(appTilte);
+        act.companyNameTxt.setText(appCompanyName);
+
     }
 }
