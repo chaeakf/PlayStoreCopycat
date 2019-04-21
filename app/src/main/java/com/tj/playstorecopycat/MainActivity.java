@@ -3,6 +3,8 @@ package com.tj.playstorecopycat;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import com.tj.playstorecopycat.adapters.appAdapter;
 import com.tj.playstorecopycat.databinding.ActivityMainBinding;
@@ -28,8 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
         mAppAdapter = new appAdapter(MainActivity.this, appList);
         act.appLankListView.setAdapter(mAppAdapter);
-
         //act.tilteTxt.setText("제목 화면");
+
+//        Q1. 확인버튼이 눌리면 "확인버튼을 눌렀습니다". 라는 토스트를 띄어봅시다.
+        act.okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "확인버튼을 눌렀습니다", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     void fillApss(){
