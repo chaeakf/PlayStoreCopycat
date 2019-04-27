@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
                         mAppAdapter.notifyDataSetChanged();
 
+
                         Toast.makeText(MainActivity.this, "해당 앱이 삭제되었습니다", Toast.LENGTH_SHORT).show();
 
 
