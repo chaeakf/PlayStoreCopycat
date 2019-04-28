@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("리퀘스트코드", requestCode+"");
         Log.d("resultCode", resultCode+"");
 
+
         if (requestCode == REQ_FOR_FILTER) {
 //            필터를 설정하러 갔다 돌아온게 맞다!
             if(resultCode == RESULT_OK) {
