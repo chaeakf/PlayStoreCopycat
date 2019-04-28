@@ -107,6 +107,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        act.filterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                필터를 입력하는 화면을 실행
+
+                Intent intent = new Intent(MainActivity.this, FilterActivity.class);
+                //startActivity(intent);
+                startActivityForResult(intent, 1);
+
+            }
+        });
+
+
 
     }
 
