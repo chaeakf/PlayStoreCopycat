@@ -65,42 +65,36 @@ public class AppDetailActivity extends AppCompatActivity {
             }
         });
 
+        act.smsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri smsUri = Uri.parse("smsto:0102345678");
+                Intent intent  = new Intent(Intent.ACTION_SENDTO, smsUri);
+                intent.putExtra("sms_body","미리 작성될 메세지");
+                startActivity(intent);
+            }
+        });
+
+//        연습문제. 날짜를 누르고 선택하면 반영되게
+//        시간을 누르고 선택하면 반영되게.  AM/PM 을 오전/오후로 변경
+
         act.dateTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("텍스트뷰클릭!","실제로 동작하나??");
-
                 DatePickerDialog dpd = new DatePickerDialog(AppDetailActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-//                        Toast.makeText(AppDetailActivity.this,String.format("%d년 %d월 %d일", year, month, dayOfMonth),Toast.LENGTH_SHORT).show();
-                        Calendar cal = Calendar.getInstance(); // new Calender라고 만들지 않는다. 싱클턴 패턴의 일종
+                        Calendar cal =Calendar.getInstance();
 
-
-//                        1.항목별로 어떤값을 갖게 할건지? 코딩 방식
-                        cal.set(Calendar.YEAR, year);
-                        cal.set(Calendar.MONTH, month);
-                        cal.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
-//                        2.년/월/일을 한꺼번에 세팅.
                         cal.set(year, month, dayOfMonth);
 
-//                        같은 메쏘드인데, arg 의 종류/갯수에 따라 다른 행동을 함. => overLoading 의 예시.
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일");
 
-//                        cal에 저장된 값을 String으로 (양식에 맞게) 바꿔서 TextView에 세팅.
-//                        날짜를 양식으로 바꾸고 싶을때는 : SimpleDateFormat을 사용.
-
-//                        어떤 양식으로 문자를 출력할지 지정. 양식 지정.
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 M월 d월");
-
-//                        지정된 양식을 통해Calender 변수를 String으로 변환.
                         String dateStr = sdf.format(cal.getTimeInMillis());
 
-//                        만들어진 String을 화면에 출력
                         act.dateTxt.setText(dateStr);
                     }
-                }, 2019,3,27);
-
+                },2019, 3, 27);
                 dpd.show();
             }
         });
@@ -111,8 +105,8 @@ public class AppDetailActivity extends AppCompatActivity {
                 TimePickerDialog tpd = new TimePickerDialog(AppDetailActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-
                         Calendar cal = Calendar.getInstance();
+
                         cal.set(Calendar.HOUR_OF_DAY, hourOfDay);
                         cal.set(Calendar.MINUTE, minute);
 
@@ -121,9 +115,8 @@ public class AppDetailActivity extends AppCompatActivity {
                         String timeStr = sdf.format(cal.getTimeInMillis());
 
                         act.timeTxt.setText(timeStr);
-
                     }
-                }, 3, 15, true);
+                }, 8, 24, false);
                 tpd.show();
             }
         });
