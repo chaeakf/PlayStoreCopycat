@@ -65,6 +65,24 @@ public class AppDetailActivity extends AppCompatActivity {
             }
         });
 
+        act.goHomepageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri homeUri = Uri.parse("https://www.naver.com");
+                Intent intent = new Intent(Intent.ACTION_VIEW, homeUri);
+                startActivity(intent);
+            }
+        });
+
+        act.purchaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("market://details?id=com.supercell.brawlstars");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
         act.smsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
